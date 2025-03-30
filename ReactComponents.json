@@ -1,0 +1,985 @@
+{
+  "nodes": [
+    {
+      "id": "/home/profitflip/ReactComponents/vite.config.ts",
+      "label": "vite.config.ts",
+      "type": "file",
+      "sizeBytes": 297,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 15,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/tsconfig.node.json",
+      "label": "tsconfig.node.json",
+      "type": "file",
+      "sizeBytes": 479,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 23
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/tsconfig.json",
+      "label": "tsconfig.json",
+      "type": "file",
+      "sizeBytes": 119,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 8
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/tsconfig.app.json",
+      "label": "tsconfig.app.json",
+      "type": "file",
+      "sizeBytes": 659,
+      "lastModified": "2025-03-29T17:01:57.424Z",
+      "lineCount": 31
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/tailwind.config.js",
+      "label": "tailwind.config.js",
+      "type": "file",
+      "sizeBytes": 170,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 9,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src",
+      "label": "src",
+      "type": "directory"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/postcss.config.js",
+      "label": "postcss.config.js",
+      "type": "file",
+      "sizeBytes": 82,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 6,
+      "complexity": {
+        "cyclomatic": 1,
+        "slocLogical": 4,
+        "maintainability": 130.79384075947067
+      }
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/pnpm-lock.yaml",
+      "label": "pnpm-lock.yaml",
+      "type": "file",
+      "sizeBytes": 195321,
+      "lastModified": "2025-03-29T17:41:02.479Z",
+      "lineCount": 5783
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/package.json",
+      "label": "package.json",
+      "type": "file",
+      "sizeBytes": 1163,
+      "lastModified": "2025-03-29T17:41:02.507Z",
+      "lineCount": 46
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/package-lock.json",
+      "label": "package-lock.json",
+      "type": "file",
+      "sizeBytes": 148643,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 4197
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/index.html",
+      "label": "index.html",
+      "type": "file",
+      "sizeBytes": 366,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 14
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/eslint.config.js",
+      "label": "eslint.config.js",
+      "type": "file",
+      "sizeBytes": 739,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 29,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/create_structure.bash",
+      "label": "create_structure.bash",
+      "type": "file",
+      "sizeBytes": 293,
+      "lastModified": "2025-03-29T14:29:57.103Z",
+      "lineCount": 16
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/abi.json",
+      "label": "abi.json",
+      "type": "file",
+      "sizeBytes": 28671,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 1165
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/README.md",
+      "label": "README.md",
+      "type": "file",
+      "sizeBytes": 850,
+      "lastModified": "2025-03-29T14:13:55.034Z",
+      "lineCount": 49
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/utils",
+      "label": "src/utils",
+      "type": "directory"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/main.tsx",
+      "label": "src/main.tsx",
+      "type": "file",
+      "sizeBytes": 1181,
+      "lastModified": "2025-03-29T19:59:46.896Z",
+      "lineCount": 45,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/index.css",
+      "label": "src/index.css",
+      "type": "file",
+      "sizeBytes": 58,
+      "lastModified": "2025-03-29T14:37:19.640Z",
+      "lineCount": 3
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components",
+      "label": "src/components",
+      "type": "directory"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/App.tsx",
+      "label": "src/App.tsx",
+      "type": "file",
+      "sizeBytes": 1241,
+      "lastModified": "2025-03-29T20:48:55.948Z",
+      "lineCount": 49,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/utils/cn.ts",
+      "label": "src/utils/cn.ts",
+      "type": "file",
+      "sizeBytes": 250,
+      "lastModified": "2025-03-29T14:30:59.346Z",
+      "lineCount": 11,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "label": "src/components/PredictionCard.tsx",
+      "type": "file",
+      "sizeBytes": 4100,
+      "lastModified": "2025-03-29T20:53:49.120Z",
+      "lineCount": 128,
+      "complexity": {}
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "label": "src/components/ConnectWalletButton.tsx",
+      "type": "file",
+      "sizeBytes": 1736,
+      "lastModified": "2025-03-29T20:43:26.828Z",
+      "lineCount": 60,
+      "complexity": {}
+    },
+    {
+      "id": "module:vite",
+      "label": "vite",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:@vitejs/plugin-react",
+      "label": "@vitejs/plugin-react",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:path",
+      "label": "path",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/vite.config.ts#export:default",
+      "label": "default",
+      "type": "export"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/tailwind.config.js#export:default",
+      "label": "default",
+      "type": "export"
+    },
+    {
+      "id": "module:@eslint/js",
+      "label": "@eslint/js",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:globals",
+      "label": "globals",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:eslint-plugin-react-hooks",
+      "label": "eslint-plugin-react-hooks",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:eslint-plugin-react-refresh",
+      "label": "eslint-plugin-react-refresh",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:typescript-eslint",
+      "label": "typescript-eslint",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/eslint.config.js#export:default",
+      "label": "default",
+      "type": "export"
+    },
+    {
+      "id": "module:react",
+      "label": "react",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:react-dom/client",
+      "label": "react-dom/client",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:wagmi",
+      "label": "wagmi",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:@reown/appkit-adapter-wagmi",
+      "label": "@reown/appkit-adapter-wagmi",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:@reown/appkit/networks",
+      "label": "@reown/appkit/networks",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/main.tsx#export:wagmiAdapter",
+      "label": "wagmiAdapter",
+      "type": "export"
+    },
+    {
+      "id": "module:react-hot-toast",
+      "label": "react-hot-toast",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:@/components/PredictionCard",
+      "label": "@/components/PredictionCard",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/App.tsx#export:App",
+      "label": "App",
+      "type": "export"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/App.tsx#function:App",
+      "label": "App",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/App.tsx#function:handleConnect",
+      "label": "handleConnect",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/App.tsx#function:predictUp",
+      "label": "predictUp",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/App.tsx#function:predictDown",
+      "label": "predictDown",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "module:clsx",
+      "label": "clsx",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:tailwind-merge",
+      "label": "tailwind-merge",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/utils/cn.ts#export:cn",
+      "label": "cn",
+      "type": "export"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/utils/cn.ts#function:cn",
+      "label": "cn",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "module:lucide-react",
+      "label": "lucide-react",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:@/utils/cn",
+      "label": "@/utils/cn",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#export:PredictionCard",
+      "label": "PredictionCard",
+      "type": "export"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#function:PredictionCard",
+      "label": "PredictionCard",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#function:CardDecoration",
+      "label": "CardDecoration",
+      "type": "function",
+      "docstring": "Example decorative blobs"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#function:CardStat",
+      "label": "CardStat",
+      "type": "function",
+      "docstring": "Simple stat component"
+    },
+    {
+      "id": "module:@reown/appkit",
+      "label": "@reown/appkit",
+      "type": "externalModule"
+    },
+    {
+      "id": "module:@/main",
+      "label": "@/main",
+      "type": "externalModule"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx#export:ConnectWalletButton",
+      "label": "ConnectWalletButton",
+      "type": "export"
+    },
+    {
+      "id": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx#function:ConnectWalletButton",
+      "label": "ConnectWalletButton",
+      "type": "function",
+      "docstring": ""
+    },
+    {
+      "id": "build:package.json",
+      "label": "package.json deps",
+      "type": "buildConfig",
+      "dependencies": [
+        {
+          "name": "@reown/appkit",
+          "version": "^1.7.1",
+          "dev": false
+        },
+        {
+          "name": "@reown/appkit-adapter-wagmi",
+          "version": "^1.7.1",
+          "dev": false
+        },
+        {
+          "name": "clsx",
+          "version": "^2.1.0",
+          "dev": false
+        },
+        {
+          "name": "ethers",
+          "version": "^6.11.1",
+          "dev": false
+        },
+        {
+          "name": "lucide-react",
+          "version": "^0.344.0",
+          "dev": false
+        },
+        {
+          "name": "react-hot-toast",
+          "version": "^2.4.1",
+          "dev": false
+        },
+        {
+          "name": "tailwind-merge",
+          "version": "^2.2.1",
+          "dev": false
+        },
+        {
+          "name": "viem",
+          "version": "^2.24.2",
+          "dev": false
+        },
+        {
+          "name": "wagmi",
+          "version": "^2.14.15",
+          "dev": false
+        },
+        {
+          "name": "@eslint/js",
+          "version": "^9.9.1",
+          "dev": true
+        },
+        {
+          "name": "@types/react",
+          "version": "^18.3.5",
+          "dev": true
+        },
+        {
+          "name": "@types/react-dom",
+          "version": "^18.3.0",
+          "dev": true
+        },
+        {
+          "name": "@vitejs/plugin-react",
+          "version": "^4.3.1",
+          "dev": true
+        },
+        {
+          "name": "autoprefixer",
+          "version": "^10.4.18",
+          "dev": true
+        },
+        {
+          "name": "eslint",
+          "version": "^9.9.1",
+          "dev": true
+        },
+        {
+          "name": "eslint-plugin-react-hooks",
+          "version": "^5.1.0-rc.0",
+          "dev": true
+        },
+        {
+          "name": "eslint-plugin-react-refresh",
+          "version": "^0.4.11",
+          "dev": true
+        },
+        {
+          "name": "globals",
+          "version": "^15.9.0",
+          "dev": true
+        },
+        {
+          "name": "postcss",
+          "version": "^8.4.35",
+          "dev": true
+        },
+        {
+          "name": "react",
+          "version": "^18.3.1",
+          "dev": true
+        },
+        {
+          "name": "react-dom",
+          "version": "^18.3.1",
+          "dev": true
+        },
+        {
+          "name": "tailwindcss",
+          "version": "^3.4.1",
+          "dev": true
+        },
+        {
+          "name": "typescript",
+          "version": "^5.5.3",
+          "dev": true
+        },
+        {
+          "name": "typescript-eslint",
+          "version": "^8.3.0",
+          "dev": true
+        },
+        {
+          "name": "vite",
+          "version": "^5.4.2",
+          "dev": true
+        }
+      ]
+    },
+    {
+      "id": "module:ethers",
+      "label": "ethers",
+      "type": "externalModule",
+      "version": "^6.11.1"
+    },
+    {
+      "id": "module:viem",
+      "label": "viem",
+      "type": "externalModule",
+      "version": "^2.24.2"
+    },
+    {
+      "id": "module:@types/react",
+      "label": "@types/react",
+      "type": "externalModule",
+      "version": "^18.3.5"
+    },
+    {
+      "id": "module:@types/react-dom",
+      "label": "@types/react-dom",
+      "type": "externalModule",
+      "version": "^18.3.0"
+    },
+    {
+      "id": "module:autoprefixer",
+      "label": "autoprefixer",
+      "type": "externalModule",
+      "version": "^10.4.18"
+    },
+    {
+      "id": "module:eslint",
+      "label": "eslint",
+      "type": "externalModule",
+      "version": "^9.9.1"
+    },
+    {
+      "id": "module:postcss",
+      "label": "postcss",
+      "type": "externalModule",
+      "version": "^8.4.35"
+    },
+    {
+      "id": "module:react-dom",
+      "label": "react-dom",
+      "type": "externalModule",
+      "version": "^18.3.1"
+    },
+    {
+      "id": "module:tailwindcss",
+      "label": "tailwindcss",
+      "type": "externalModule",
+      "version": "^3.4.1"
+    },
+    {
+      "id": "module:typescript",
+      "label": "typescript",
+      "type": "externalModule",
+      "version": "^5.5.3"
+    }
+  ],
+  "edges": [
+    {
+      "source": "/home/profitflip/ReactComponents/src",
+      "target": "/home/profitflip/ReactComponents/src/utils",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src",
+      "target": "/home/profitflip/ReactComponents/src/main.tsx",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src",
+      "target": "/home/profitflip/ReactComponents/src/index.css",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src",
+      "target": "/home/profitflip/ReactComponents/src/components",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/utils",
+      "target": "/home/profitflip/ReactComponents/src/utils/cn.ts",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components",
+      "target": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components",
+      "target": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "relationship": "contains"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/vite.config.ts",
+      "target": "module:vite",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/vite.config.ts",
+      "target": "module:@vitejs/plugin-react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/vite.config.ts",
+      "target": "module:path",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/vite.config.ts",
+      "target": "/home/profitflip/ReactComponents/vite.config.ts#export:default",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/tailwind.config.js",
+      "target": "/home/profitflip/ReactComponents/tailwind.config.js#export:default",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/eslint.config.js",
+      "target": "module:@eslint/js",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/eslint.config.js",
+      "target": "module:globals",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/eslint.config.js",
+      "target": "module:eslint-plugin-react-hooks",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/eslint.config.js",
+      "target": "module:eslint-plugin-react-refresh",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/eslint.config.js",
+      "target": "module:typescript-eslint",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/eslint.config.js",
+      "target": "/home/profitflip/ReactComponents/eslint.config.js#export:default",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "module:react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "module:react-dom/client",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "module:wagmi",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "module:@reown/appkit-adapter-wagmi",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "module:@reown/appkit/networks",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "/home/profitflip/ReactComponents/src/index.css",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/main.tsx",
+      "target": "/home/profitflip/ReactComponents/src/main.tsx#export:wagmiAdapter",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "module:react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "module:react-hot-toast",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "module:@/components/PredictionCard",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx#export:App",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx#function:App",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx#function:handleConnect",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx#function:predictUp",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/App.tsx",
+      "target": "/home/profitflip/ReactComponents/src/App.tsx#function:predictDown",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/utils/cn.ts",
+      "target": "module:clsx",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/utils/cn.ts",
+      "target": "module:tailwind-merge",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/utils/cn.ts",
+      "target": "/home/profitflip/ReactComponents/src/utils/cn.ts#export:cn",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/utils/cn.ts",
+      "target": "/home/profitflip/ReactComponents/src/utils/cn.ts#function:cn",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "module:react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "module:lucide-react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "module:@/utils/cn",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#export:PredictionCard",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#function:PredictionCard",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#function:CardDecoration",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/PredictionCard.tsx#function:CardStat",
+      "relationship": "defines"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "module:react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "module:lucide-react",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "module:@reown/appkit",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "module:wagmi",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "module:@reown/appkit/networks",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "module:@/main",
+      "relationship": "imports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx#export:ConnectWalletButton",
+      "relationship": "exports"
+    },
+    {
+      "source": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx",
+      "target": "/home/profitflip/ReactComponents/src/components/ConnectWalletButton.tsx#function:ConnectWalletButton",
+      "relationship": "defines"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:@reown/appkit",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:@reown/appkit-adapter-wagmi",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:clsx",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:ethers",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:lucide-react",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:react-hot-toast",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:tailwind-merge",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:viem",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:wagmi",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:@eslint/js",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:@types/react",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:@types/react-dom",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:@vitejs/plugin-react",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:autoprefixer",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:eslint",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:eslint-plugin-react-hooks",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:eslint-plugin-react-refresh",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:globals",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:postcss",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:react",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:react-dom",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:tailwindcss",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:typescript",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:typescript-eslint",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "build:package.json",
+      "target": "module:vite",
+      "relationship": "depends_on"
+    }
+  ]
+}

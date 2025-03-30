@@ -1,106 +1,127 @@
+// PredictionCard.tsx
 import React from 'react';
-import { Wallet, CircleDollarSign, TrendingUp, Users, Timer, ArrowUp, ArrowDown } from 'lucide-react';
-import { Card, CardDecoration, CardContent, CardBadge, CardTitle, CardStats, CardStat } from '@/components/ui/Card';
+import { ArrowUp, ArrowDown } from 'lucide-react';
+import { ConnectWalletButton } from './ConnectWalletButton';
+// Example utility function if you have “cn” in "src/utils/cn.ts"
+import { cn } from '@/utils/cn';
 
+// Reintroduce the props for stats
 interface PredictionCardProps {
   title: string;
-  amount: string;
-  currentPrice: string;
+  amount: string;        // minimal bet
+  currentPrice: string;  // current price
   players: string;
   timeLeft: string;
+  isConnected: boolean;
+  onConnect: () => void;
   onPredictUp: () => Promise<void>;
   onPredictDown: () => Promise<void>;
-  isConnected: boolean;
-  onConnect: () => Promise<void>;
 }
 
-const PredictionCard: React.FC<PredictionCardProps> = ({
+export const PredictionCard: React.FC<PredictionCardProps> = ({
   title,
   amount,
   currentPrice,
   players,
   timeLeft,
-  onPredictUp,
-  onPredictDown,
   isConnected,
   onConnect,
+  onPredictUp,
+  onPredictDown,
 }) => {
   return (
-    <Card className="w-full max-w-[340px] mx-auto">
-      <CardDecoration />
-      <CardContent>
-        <div className="flex items-center justify-between mb-3">
-          <CardBadge variant="orange">Live</CardBadge>
-          <CardBadge variant="emerald">2x</CardBadge>
-        </div>
-        
-        <CardTitle className="text-center">{title}</CardTitle>
-        
-        <CardStats>
+    <div
+      className={cn(
+        'w-[300px] h-[485px] max-w-sm mx-auto flex flex-col overflow-hidden bg-white rounded-2xl p-5 shadow-lg border relative'
+      )}
+    >
+      {/* Bring back the decorative blobs if you want */}
+      {/* <CardDecoration /> */}
+
+      <h2 className="text-xl font-bold text-center mb-6">{title}</h2>
+
+      {/* Example Stats Section */}
+      <div className="flex-grow">
+        <div className="mt-4 space-y-3">
+          <CardStat label="Minimal Bet" value={`${amount} POL`} color="orange" />
           <CardStat
-            icon={<CircleDollarSign />}
-            label="Minimal Bet"
-            value={`${amount} POL`}
-            variant="orange"
-          />
-          
-          <CardStat
-            icon={<TrendingUp />}
             label="Current Price"
-            value={currentPrice}
-            variant="emerald"
+            value={`₿ ${currentPrice}`}
+            color="green"
           />
-          
-          <div className="flex gap-2">
-            <div className="flex-1">
-              <CardStat
-                icon={<Users />}
-                label="Players"
-                value={players}
-                variant="orange"
-              />
-            </div>
-            
-            <div className="flex-1">
-              <CardStat
-                icon={<Timer />}
-                label="Time"
-                value={timeLeft}
-                variant="emerald"
-              />
-            </div>
-          </div>
-        </CardStats>
-        
+          <CardStat label="Players" value={players} color="orange" />
+          <CardStat label="Time Left" value={timeLeft} color="green" />
+        </div>
+      </div>
+
+      <div className="mt-auto">
         {!isConnected ? (
-          <button
-            onClick={onConnect}
-            className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 shadow-lg shadow-orange-500/20 font-medium text-sm"
-          >
-            <Wallet className="w-4 h-4 mr-2" />
-            Connect Wallet
-          </button>
+          <ConnectWalletButton
+            className="w-full"
+            onConnectionSuccess={onConnect}
+          />
         ) : (
           <div className="grid grid-cols-2 gap-2">
             <button
               onClick={onPredictDown}
-              className="bg-gradient-to-r from-red-500 to-red-600 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-lg shadow-red-500/20 font-medium text-sm"
+              className="bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg flex items-center justify-center text-sm font-medium"
             >
               <ArrowDown className="w-4 h-4 mr-1.5" />
               Down
             </button>
             <button
               onClick={onPredictUp}
-              className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:from-emerald-600 hover:to-emerald-700 transition-all duration-200 shadow-lg shadow-emerald-500/20 font-medium text-sm"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-lg flex items-center justify-center text-sm font-medium"
             >
               <ArrowUp className="w-4 h-4 mr-1.5" />
               Up
             </button>
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 
-export default PredictionCard;
+// Example decorative blobs
+const CardDecoration = () => (
+  <>
+    <style>
+      {`
+        @keyframes blob {
+          0% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0, 0) scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .delay-2s { animation-delay: 2s; }
+        .delay-4s { animation-delay: 4s; }
+      `}
+    </style>
+    <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+      <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob delay-2s" />
+      <div className="absolute top-40 right-20 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob delay-4s" />
+    </div>
+  </>
+);
+
+// Simple stat component
+const CardStat: React.FC<{
+  label: string;
+  value: string;
+  color: 'orange' | 'green';
+}> = ({ label, value, color }) => (
+  <div
+    className={cn(
+      'p-2 rounded border text-sm',
+      color === 'orange'
+        ? 'bg-orange-50 border-orange-200'
+        : 'bg-emerald-50 border-emerald-200'
+    )}
+  >
+    <div className="text-xs text-gray-600 font-medium mb-1">{label}</div>
+    <div className="text-sm font-bold text-gray-900">{value}</div>
+  </div>
+);
