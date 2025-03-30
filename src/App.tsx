@@ -52,6 +52,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-emerald-50 flex flex-col items-center justify-center p-4 gap-8">
       <PredictionCard
+        epoch={epoch}
         title="BTC/USD"
         amount={minBet}
         currentPrice={price}

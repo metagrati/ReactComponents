@@ -19,8 +19,6 @@ export const usePredictionGame = () => {
   const [paused, setPaused] = useState(false);
   const { rounds: userRounds, loading: userRoundsLoading, refresh: refreshUserRounds } = useUserRounds();
 
-
-
   useEffect(() => {
     const setup = async () => {
       if (typeof window !== 'undefined' && window.ethereum) {
@@ -35,7 +33,6 @@ export const usePredictionGame = () => {
       console.error('Failed to set up contract:', err);
     });
   }, []);
-
 
   const refreshGameState = useCallback(async () => {
     if (!contract) return;
@@ -54,7 +51,6 @@ export const usePredictionGame = () => {
       const [, rawPrice] = await oracle.latestRoundData();
       setPrice(ethers.formatUnits(rawPrice, 8));
 
-      // Refresh user rounds here:
       await refreshUserRounds();
 
     } catch (err) {
@@ -62,22 +58,31 @@ export const usePredictionGame = () => {
     }
   }, [contract, refreshUserRounds]);
 
-
-  interface PlaceBetParams {
-    direction: 'bull' | 'bear';
-    amountEth: string;
-  }
-
   const placeBet = useCallback(
     async ({ direction, amountEth }: PlaceBetParams) => {
-      if (!contract || epoch === null) return;
-      const fn: 'betBull' | 'betBear' = direction === 'bull' ? 'betBull' : 'betBear';
-      const tx = await contract[fn](epoch, {
-        value: ethers.parseEther(amountEth),
-      });
-      await tx.wait();
+      if (!contract) return;
+
+      try {
+        // Always fetch the latest epoch from the blockchain to avoid stale epoch
+        const latestEpoch = Number(await contract.currentEpoch());
+        setEpoch(latestEpoch);  // Sync the state
+
+        const fn: 'betBull' | 'betBear' = direction === 'bull' ? 'betBull' : 'betBear';
+        const tx = await contract[fn](latestEpoch, {
+          value: ethers.parseEther(amountEth),
+        });
+        await tx.wait();
+
+        // Refresh after successful bet
+        await refreshGameState();
+        await refreshUserRounds();
+
+      } catch (error) {
+        console.error("Error placing bet:", error);
+        throw error; 
+      }
     },
-    [contract, epoch]
+    [contract, refreshGameState, refreshUserRounds]
   );
 
   useEffect(() => {
@@ -95,5 +100,9 @@ export const usePredictionGame = () => {
     userRoundsLoading,
     refreshUserRounds,
   };
-
 };
+
+interface PlaceBetParams {
+  direction: 'bull' | 'bear';
+  amountEth: string;
+}
