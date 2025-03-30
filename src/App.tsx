@@ -1,45 +1,74 @@
-// src/App.tsx
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { PredictionCard } from '@/components/PredictionCard';
+import UserBetHistory from '@/components/UserBetHistory';
+import { usePredictionGame } from '@/components/hooks/usePredictionGame';
+import { useAccount } from 'wagmi';
 
 const App: React.FC = () => {
-  const [isConnected, setIsConnected] = useState(false);
+  const { isConnected } = useAccount();
 
-  const handleConnect = () => {
-    setIsConnected(true);
-    toast.success('Wallet connected!');
-  };
+  const {
+    epoch,
+    price,
+    minBet,
+    paused,
+    placeBet,
+    refreshGameState,
+    userRounds,
+    refreshUserRounds,
+    userRoundsLoading
+  } = usePredictionGame();
 
-  const predictUp = async () => {
+  useEffect(() => {
+    refreshGameState();
+    refreshUserRounds();
+
+    const interval = setInterval(() => {
+      refreshGameState();
+      refreshUserRounds();
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, [refreshGameState, refreshUserRounds]);
+
+  const handlePredict = async (direction: 'bull' | 'bear') => {
     if (!isConnected) {
       toast.error('Please connect your wallet first');
       return;
     }
-    // ... do contract calls or any logic ...
-  };
 
-  const predictDown = async () => {
-    if (!isConnected) {
-      toast.error('Please connect your wallet first');
-      return;
+    try {
+      await placeBet({ direction, amountEth: minBet });
+      toast.success(`Bet placed on ${direction.toUpperCase()}`);
+      refreshGameState();
+      refreshUserRounds();
+    } catch (error) {
+      toast.error('Failed to place bet');
+      console.error(error);
     }
-    // ... do contract calls or any logic ...
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-emerald-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-emerald-50 flex flex-col items-center justify-center p-4 gap-8">
       <PredictionCard
         title="BTC/USD"
-        amount = "0.0001"
-        currentPrice = "78000"
-        players = "128"
-        timeLeft = "3m"
+        amount={minBet}
+        currentPrice={price}
+        players="128"
+        timeLeft="3m"
         isConnected={isConnected}
-        onConnect={handleConnect}
-        onPredictUp={predictUp}
-        onPredictDown={predictDown}
+        onConnect={() => {}}
+        onPredictUp={() => handlePredict('bull')}
+        onPredictDown={() => handlePredict('bear')}
       />
+
+      {userRoundsLoading ? (
+        <p className="text-center">Loading bet history...</p>
+      ) : (
+        <UserBetHistory bets={userRounds} />
+      )}
+
       <Toaster position="bottom-right" />
     </div>
   );

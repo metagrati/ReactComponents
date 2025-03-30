@@ -7,6 +7,7 @@ import { cn } from '@/utils/cn';
 
 // Reintroduce the props for stats
 interface PredictionCardProps {
+  epoch: number | null;
   title: string;
   amount: string;        // minimal bet
   currentPrice: string;  // current price
@@ -19,6 +20,7 @@ interface PredictionCardProps {
 }
 
 export const PredictionCard: React.FC<PredictionCardProps> = ({
+  epoch,
   title,
   amount,
   currentPrice,
@@ -40,7 +42,10 @@ export const PredictionCard: React.FC<PredictionCardProps> = ({
 
       <h2 className="text-xl font-bold text-center mb-6">{title}</h2>
 
-      {/* Example Stats Section */}
+      {epoch !== null && (
+        <h3 className="text-sm text-center text-gray-500 mb-4">Round #{epoch}</h3>
+      )}
+
       <div className="flex-grow">
         <div className="mt-4 space-y-3">
           <CardStat label="Minimal Bet" value={`${amount} POL`} color="orange" />
