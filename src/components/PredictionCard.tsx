@@ -32,7 +32,7 @@ export const PredictionCard: React.FC<PredictionCardProps> = ({
   return (
     <div
       className={cn(
-        'w-[300px] h-[485px] max-w-sm mx-auto flex flex-col overflow-hidden bg-white rounded-2xl p-5 shadow-lg border relative'
+        'w-[358px] h-[580px] max-w-sm mx-auto flex flex-col overflow-hidden bg-white rounded-2xl p-4 shadow-lg border relative'
       )}
     >
       {/* Bring back the decorative blobs if you want */}
