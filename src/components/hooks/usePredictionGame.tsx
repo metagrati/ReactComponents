@@ -7,7 +7,7 @@ declare const window: any;
 
 const CONTRACT_ADDRESS = CONTRACTS.prediction.address;
 const AggregatorV3InterfaceABI = [
-  "function latestRoundData() view returns (uint80, int256, uint256, uint256, uint80)"
+  "function latestRoundData() view returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)"
 ];
 const ABI = CONTRACTS.prediction.abi;
 
@@ -16,7 +16,7 @@ interface PlaceBetParams {
   amountEth: string;
 }
 
-// Structure for your round details; adapt fields to match your contract’s round struct
+// Structure for your round details; adapt fields to match your contract's round struct
 interface RoundData {
   startTimestamp: ethers.BigNumberish;
   lockTimestamp: ethers.BigNumberish;
@@ -36,6 +36,8 @@ interface RoundsDictionary {
 
 export const usePredictionGame = () => {
   const [contract, setContract] = useState<ethers.Contract | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [provider, setProvider] = useState<ethers.Provider | null>(null);
 
   const [epoch, setEpoch] = useState<number | null>(null);
   const [price, setPrice] = useState('0');
@@ -52,40 +54,54 @@ export const usePredictionGame = () => {
     refresh: refreshUserRounds
   } = useUserRounds();
 
-  /**
-   * 1. Initialize contract
-   */
+  // Initialize provider
   useEffect(() => {
     const setup = async () => {
-      if (typeof window !== 'undefined' && window.ethereum) {
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const signer = await provider.getSigner();
-        const instance = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
-        setContract(instance);
+      try {
+        // Use a public RPC endpoint for Polygon mainnet
+        const fallbackProvider = new ethers.JsonRpcProvider('https://polygon-rpc.com');
+        setProvider(fallbackProvider);
+        setError(null);
+      } catch (err) {
+        console.error('Failed to set up provider:', err);
+        setError(err instanceof Error ? err : new Error('Failed to set up provider'));
       }
     };
 
-    setup().catch((err) => {
-      console.error('Failed to set up contract:', err);
-    });
+    setup();
   }, []);
+
+  // Set up contract with provider
+  useEffect(() => {
+    if (!provider) return;
+
+    const setupContract = async () => {
+      try {
+        const instance = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider);
+        
+        // Test if contract is accessible
+        await instance.paused();
+        
+        setContract(instance);
+        setError(null);
+      } catch (err) {
+        console.error('Failed to set up contract:', err);
+        setError(err instanceof Error ? err : new Error('Failed to set up contract'));
+      }
+    };
+
+    setupContract();
+  }, [provider]);
 
   /**
    * Helper: Fetch data for one round by epoch
    */
   const fetchRoundData = useCallback(
     async (roundNumber: number): Promise<RoundData | null> => {
-      if (!contract || roundNumber < 1) {
-        // If your contract starts epochs at 1, skip negative or zero epochs
-        return null;
-      }
+      if (!contract || roundNumber < 1) return null;
+      
       try {
-        // “rounds()” is a typical name in a Prediction contract that returns struct data by epoch
-        // Adjust to your contract's function name if it’s different
         const roundInfo = await contract.rounds(roundNumber);
-
-        // Return the raw struct, or shape it into an object if needed
-        // (You can destructure or convert BigNumber to string as you wish.)
         return {
           startTimestamp: roundInfo.startTimestamp,
           lockTimestamp: roundInfo.lockTimestamp,
@@ -109,74 +125,92 @@ export const usePredictionGame = () => {
    */
   const refreshGameState = useCallback(async () => {
     if (!contract) return;
+    
     try {
-      // Basic game info
-      const [epochRaw, minBetRaw, pausedStatus] = await Promise.all([
+      // Fetch basic game info
+      const [epochBN, minBetBN, pausedStatus] = await Promise.all([
         contract.currentEpoch(),
         contract.minBetAmount(),
         contract.paused()
       ]);
-      const newEpoch = Number(epochRaw);
+
+      // Handle epoch conversion more robustly
+      const newEpoch = typeof epochBN === 'object' && epochBN.toNumber ? 
+        epochBN.toNumber() : 
+        Number(epochBN);
 
       setEpoch(newEpoch);
-      setMinBet(ethers.formatEther(minBetRaw));
+      
+      // Handle minBet conversion more robustly
+      const minBetValue = typeof minBetBN === 'object' && minBetBN.toString ? 
+        minBetBN.toString() : 
+        minBetBN.toString();
+      setMinBet(ethers.formatEther(minBetValue));
+      
       setPaused(pausedStatus);
 
-      // Price from the oracle
-      const oracleAddress = await contract.oracle();
-      const oracle = new ethers.Contract(
-        oracleAddress,
-        AggregatorV3InterfaceABI,
-        contract.runner
-      );
-      const [, rawPrice] = await oracle.latestRoundData();
-      setPrice(ethers.formatUnits(rawPrice, 8));
+      // Fetch price from oracle
+      try {
+        const oracleAddress = await contract.oracle();
+        const oracle = new ethers.Contract(
+          oracleAddress,
+          AggregatorV3InterfaceABI,
+          contract.runner
+        );
+        const [, answer] = await oracle.latestRoundData();
+        setPrice(ethers.formatUnits(answer, 8));
+      } catch (oracleErr) {
+        console.warn('Failed to fetch oracle price:', oracleErr);
+      }
 
-      // *** Key part: fetch multiple rounds (current-2, current-1, current, current+1) 
+      // Fetch rounds data
       if (newEpoch) {
         const targets = [newEpoch - 2, newEpoch - 1, newEpoch, newEpoch + 1];
         const fetched = await Promise.all(targets.map(fetchRoundData));
 
-        // Build dictionary
         const updatedRoundsData: RoundsDictionary = {};
         targets.forEach((ep, i) => {
-          updatedRoundsData[ep] = fetched[i];
+          if (ep > 0) { // Only store valid epoch numbers
+            updatedRoundsData[ep] = fetched[i];
+          }
         });
         setRoundsData(updatedRoundsData);
       }
 
-      // Refresh user-specific data
-      await refreshUserRounds();
+      setError(null);
     } catch (err) {
       console.error("Error fetching game state:", err);
+      setError(err instanceof Error ? err : new Error('Failed to fetch game state'));
     }
-  }, [contract, fetchRoundData, refreshUserRounds]);
+  }, [contract, fetchRoundData]);
 
   /**
    * 3. Place Bet logic
    */
   const placeBet = useCallback(
     async ({ direction, amountEth }: PlaceBetParams) => {
-      if (!contract) return;
+      if (!contract || !window.ethereum) {
+        throw new Error('Wallet not connected');
+      }
 
       try {
-        // Always fetch the latest epoch to avoid stale data
-        const latestEpoch = Number(await contract.currentEpoch());
-        setEpoch(latestEpoch);
+        const signer = await (new ethers.BrowserProvider(window.ethereum)).getSigner();
+        const contractWithSigner = contract.connect(signer);
 
-        const fn: 'betBull' | 'betBear' =
-          direction === 'bull' ? 'betBull' : 'betBear';
-        const tx = await contract[fn](latestEpoch, {
+        const latestEpoch = await contract.currentEpoch();
+        const fn = direction === 'bull' ? 'betBull' : 'betBear';
+        
+        const tx = await contractWithSigner[fn](latestEpoch, {
           value: ethers.parseEther(amountEth),
         });
         await tx.wait();
 
-        // Refresh after successful bet
         await refreshGameState();
         await refreshUserRounds();
-      } catch (error) {
-        console.error("Error placing bet:", error);
-        throw error;
+        setError(null);
+      } catch (err) {
+        console.error("Error placing bet:", err);
+        throw err;
       }
     },
     [contract, refreshGameState, refreshUserRounds]
@@ -188,6 +222,8 @@ export const usePredictionGame = () => {
   useEffect(() => {
     if (contract) {
       refreshGameState();
+      const interval = setInterval(refreshGameState, 15000);
+      return () => clearInterval(interval);
     }
   }, [contract, refreshGameState]);
 
@@ -202,6 +238,7 @@ export const usePredictionGame = () => {
     refreshGameState,
     userRounds,
     userRoundsLoading,
-    refreshUserRounds
+    refreshUserRounds,
+    error
   };
 };
